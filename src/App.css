@@ -36,3 +36,139 @@
     transform: rotate(360deg);
   }
 }
+
+.nexai-chatbot-container {
+  position: relative;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Floating Chat Button */
+.chat-toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1001;
+}
+
+.chat-toggle-button:hover {
+  background-color: #357abd;
+  transform: scale(1.1);
+}
+
+.chat-toggle-button.open {
+  background-color: #e94e77;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-button {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1001;
+}
+
+.theme-toggle-button:hover {
+  background-color: #555;
+}
+
+/* Chatbot Wrapper */
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 360px;
+  max-height: 80vh;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.chatbot-wrapper.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.chatbot-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dark Theme */
+body.dark .chatbot-wrapper {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark .chat-toggle-button {
+  background-color: #6ab0ff;
+}
+
+body.dark .chat-toggle-button:hover {
+  background-color: #4a90e2;
+}
+
+body.dark .chat-toggle-button.open {
+  background-color: #ff6b6b;
+}
+
+body.dark .theme-toggle-button {
+  background-color: #555;
+}
+
+body.dark .theme-toggle-button:hover {
+  background-color: #777;
+}
+
+/* Chatbot Content */
+.chatbot-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Smooth Scrollbar */
+.chatbot-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatbot-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatbot-content::-webkit-scrollbar-thumb {
+  background: #4a90e2;
+  border-radius: 3px;
+}
+
+body.dark .chatbot-content::-webkit-scrollbar-thumb {
+  background: #6ab0ff;
+}
