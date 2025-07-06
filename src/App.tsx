@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '@n8n/chat/style.css';
 import { createChat } from '@n8n/chat';
-import './NexAIChatbot.css'; // Custom CSS for enhanced UI
+import './App.css'; // Custom CSS for enhanced UI
 
 export const Apptsx = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
