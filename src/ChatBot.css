@@ -1,0 +1,172 @@
+:root {
+    --jeevan-primary: #be72ff;
+    --jeevan-secondary: #ffe7fa;
+    --jeevan-accent: #f7d6ff;
+    --jeevan-window-width: 430px;
+    --jeevan-window-height: 610px;
+    --jeevan-glass-blur: 16px;
+}
+
+/* Container for centering and some breathing room */
+.jeevan-chatbot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background: linear-gradient(120deg, #ffe7fa 0%, #be72ff 80%);
+    animation: gradientMove 8s infinite alternate;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Chat window styling */
+#jeevan-chat .n8n-chat-window {
+    background: linear-gradient(135deg, #fff9fa 0%, #be72ff 100%);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(190, 114, 255, 0.18), 0 2px 12px #f7d6ff70;
+    backdrop-filter: blur(var(--jeevan-glass-blur));
+    border: 2px solid #be72ff44;
+    min-width: 320px;
+    width: var(--jeevan-window-width);
+    height: var(--jeevan-window-height);
+    overflow: hidden;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+/* Header with floating animated avatar */
+#jeevan-chat .n8n-chat-header {
+    background: linear-gradient(90deg, #be72ff 0%, #f7d6ff 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    padding: 20px 0 16px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    border-bottom: 1px solid #f7d6ff;
+    box-shadow: 0 2px 8px #be72ff20;
+    justify-content: center;
+    position: relative;
+}
+
+#jeevan-chat .n8n-chat-header .n8n-chat-avatar {
+    background: #fff;
+    border-radius: 50%;
+    padding: 7px;
+    margin-right: 10px;
+    box-shadow: 0 2px 8px #be72ff44;
+    animation: floatAvatar 2.6s infinite ease-in-out;
+}
+
+@keyframes floatAvatar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Message bubbles */
+#jeevan-chat .n8n-chat-message {
+    border-radius: 18px;
+    margin-bottom: 12px;
+    transition: background 0.18s;
+    font-size: 1.08em;
+}
+
+#jeevan-chat .n8n-chat-message.n8n-chat-message-bot {
+    background: rgba(190, 114, 255, 0.08);
+    color: #7b2ff2;
+    font-weight: 500;
+    border-left: 5px solid #be72ff;
+    box-shadow: 0 1px 6px #be72ff22;
+}
+
+#jeevan-chat .n8n-chat-message.n8n-chat-message-user {
+    background: #ffe7fa;
+    color: #7b2ff2;
+    font-weight: 500;
+    border-right: 5px solid #f7d6ff;
+    box-shadow: 0 1px 6px #f7d6ff44;
+}
+
+/* Input area styling */
+#jeevan-chat .n8n-chat-input-area {
+    background: #fff;
+    padding: 18px 16px 14px 16px;
+    border-top: 1px solid #f7d6ff;
+    box-shadow: 0 -3px 16px #be72ff18;
+    border-radius: 0 0 24px 24px;
+}
+
+#jeevan-chat .n8n-chat-input {
+    border: 2px solid #be72ff;
+    border-radius: 22px;
+    background: #f7d6ff;
+    padding: 12px 22px;
+    font-size: 1.17em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px #be72ff18;
+}
+
+#jeevan-chat .n8n-chat-input:focus {
+    border-color: #7b2ff2;
+    box-shadow: 0 0 9px #be72ff44;
+    outline: none;
+}
+
+#jeevan-chat .n8n-chat-send-btn {
+    background: linear-gradient(135deg, #be72ff, #f7d6ff);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 9px #be72ff55;
+    transition: background 0.25s;
+    width: 48px;
+    height: 48px;
+    font-size: 1.7em;
+    margin-left: 14px;
+    cursor: pointer;
+}
+
+#jeevan-chat .n8n-chat-send-btn:hover {
+    background: linear-gradient(135deg, #f7d6ff, #be72ff);
+}
+
+#jeevan-chat .n8n-chat-typing-indicator {
+    color: #be72ff;
+    background: #f7d6ff;
+    border-radius: 10px;
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+#jeevan-chat .n8n-chat-footer {
+    background: transparent;
+    color: #7b2ff2;
+    font-size: 0.97em;
+    border-top: none;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --jeevan-window-width: 98vw;
+        --jeevan-window-height: 540px;
+    }
+    #jeevan-chat .n8n-chat-window {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --jeevan-window-width: 99vw;
+        --jeevan-window-height: 380px;
+    }
+    #jeevan-chat .n8n-chat-input {
+        font-size: 1em;
+    }
+}
